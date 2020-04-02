@@ -1,7 +1,7 @@
 public abstract class ASystem
 {
-    private int numberOfComponents;
-    private double[] lambdaI;
+    protected int numberOfComponents;
+    protected double[] lambdaI;
 
     public ASystem(int numberOfComponents, double[] lambdaI)
     {

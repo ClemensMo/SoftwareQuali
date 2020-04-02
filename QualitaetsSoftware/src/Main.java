@@ -10,11 +10,11 @@ public class Main
         String valuesString[] = getValues();
         double inputValues[] = convertToDouble(valuesString);
 
-        /*ASystem s1 = new System1(inputValues.length, inputValues);
+        ASystem s1 = new System1(inputValues.length, inputValues);
         ASystem s2 = new System2(inputValues.length, inputValues);
-        ASystem s3 = new System3(inputValues.length, inputValues);
+        //ASystem s3 = new System1(inputValues.length, inputValues);
 
-        runSystems(s1, s2, s3);*/
+        //runSystems(s1, s2, s3);
     }
 
     public static void runSystems(ASystem s1, ASystem s2, ASystem s3)
