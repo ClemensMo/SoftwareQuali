@@ -14,7 +14,7 @@ public class System3 extends ASystem{
         double interimResult=1;
         double euler = Math.E;
         for (int i = 0; i < lambdaI.length; i++) {
-            double reliability = Math.pow(e, (-lambdaI[i]*87600));
+            double reliability = Math.pow(euler, (-lambdaI[i]*87600));
             double difference = 1 - reliability;
             interimResult  = interimResult * difference;
         }

@@ -12,21 +12,22 @@ public class Main
 
         ASystem s1 = new System1(inputValues.length, inputValues);
         ASystem s2 = new System2(inputValues.length, inputValues);
-        //ASystem s3 = new System1(inputValues.length, inputValues);
+        ASystem s3 = new System3(inputValues.length, inputValues);
+        ASystem s4 = new System4(inputValues.length, inputValues);
+        ASystem s5 = new System5(inputValues.length, inputValues);
 
-        //runSystems(s1, s2, s3);
+        runSystems(s1, s2, s3, s4, s5);
     }
 
-    public static void runSystems(ASystem s1, ASystem s2, ASystem s3)
+    public static void runSystems(ASystem s1, ASystem s2, ASystem s3, ASystem s4, ASystem s5)
     {
         double rp1 = s1.getRP();
         double rp2 = s2.getRP();
         double rp3 = s3.getRP();
-        double fp1 = s1.getFP();
-        double fp2 = s2.getFP();
-        double fp3 = s3.getFP();
+        double rp4 = s4.getRP();
+        double rp5 = s5.getRP();
 
-        SQ_States state = checkConsistency(rp1, rp2, rp3);
+        SQ_States state = checkConsistency(rp1, rp2, rp3, rp4, rp5);
 
         switch (state)
         {
@@ -69,15 +70,18 @@ public class Main
     }
 
     // Voting
-    public static SQ_States checkConsistency(double val1, double val2, double val3)
+    public static SQ_States checkConsistency(double val1, double val2, double val3, double val4, double val5)
     {
         // TODO account for number precision problems?
 
         SQ_States ret = SQ_States.NO_ERROR;
 
-        if (!(val1 == val2 && val1 == val3))
+        if (!(val1 == val2 && val1 == val3 && val1 == val4 && val1 == val5))
         {
-            if (val1 == val2 || val1 == val3 || val2 == val3)
+            if (    (val1 == val2 && val1 == val3 && val1 == val4 && val1 != val5)||
+                    (val1 == val2 && val1 == val3 && val1 != val4 && val1 == val5)||
+                    (val1 == val2 && val1 != val3 && val1 == val4 && val1 == val5)||
+                    (val1 != val2 && val1 == val3 && val1 == val4 && val1 == val5))
             {
                 ret = SQ_States.ONE_ERROR;
             }
