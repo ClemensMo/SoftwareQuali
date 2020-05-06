@@ -1,6 +1,6 @@
 public class System5 extends ASystem {
 
-    private double fp;
+    private double fp = 1.0;
 
     public System5(int numberOfComponents, double[] lambdaI) {
         super(numberOfComponents, lambdaI);
@@ -9,12 +9,12 @@ public class System5 extends ASystem {
 
     @Override
     public double getRP() {
-        return this.fp;
+        return 1 - this.fp;
     }
 
     @Override
     public double getFP() {
-        return 1 - this.fp;
+        return this.fp;
     }
 
     private void calcFP() {
@@ -22,7 +22,7 @@ public class System5 extends ASystem {
         for (int i = 0; i < lambdaI.length; i++) {
             double rel = Math.pow(e, (-lambdaI[i]*87600));
             double diff = 1 - rel;
-            fp  = fp * diff;
+            this.fp  = this.fp * diff;
         }
     }
 }
