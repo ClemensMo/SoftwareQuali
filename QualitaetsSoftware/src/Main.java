@@ -52,11 +52,11 @@ public class Main
     {
         double[] values = new double[5];
         double e = Math.E;
-        values[0] = Math.pow(0.2*e, -20.0);
-        values[1] = Math.pow(0.7*e, -30.0);
-        values[2] = Math.pow(0.1*e, -30.0);
-        values[3] = Math.pow(0.2*e, -20.0);
-        values[4] = Math.pow(0.6*e, -30.0);
+        values[0] = 0.00005;
+        values[1] = 0.000004;
+        values[2] = 0.00001;
+        values[3] = 0.000009;
+        values[4] = 0.00008;
         return values;
     }
 
@@ -84,8 +84,6 @@ public class Main
     // Voting
     public static SQ_States checkConsistency(double val1, double val2, double val3, double val4, double val5)
     {
-        // TODO account for number precision problems?
-
         SQ_States ret = SQ_States.NO_ERROR;
 
         if (!(val1 == val2 && val1 == val3 && val1 == val4 && val1 == val5))
